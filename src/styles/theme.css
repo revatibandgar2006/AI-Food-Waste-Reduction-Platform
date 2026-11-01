@@ -1,0 +1,151 @@
+/* ============================================================
+   FOOD RESCUE — Design Tokens
+   Palette:
+     --forest      #1B4332  deep forest green   (nav, headings, dark panels)
+     --rescue      #40916C  rescue green         (primary actions, links)
+     --sprout      #74C69D  sprout green         (hovers, soft accents)
+     --harvest     #E9A93B  harvest gold          (warmth, food, highlights)
+     --clay        #E1653F  clay red              (urgency: waste, alerts)
+     --cream       #FBF7EE  cream                 (page background)
+     --paper       #FFFFFF  paper                 (cards)
+     --ink         #22291F  ink                   (body text)
+     --ink-soft    #5B6459  soft ink              (secondary text)
+   Type:
+     Display  — 'Fraunces'      (headlines: warm, editorial, a little rustic)
+     Body     — 'Work Sans'     (UI + paragraphs: clean, humanist, legible)
+     Mono     — 'Space Mono'    (numbers, stats, labels: gives data a grounded, receipt-like feel)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --forest: #1B4332;
+  --forest-deep: #0F2A1D;
+  --rescue: #40916C;
+  --rescue-dark: #2D6A4F;
+  --sprout: #95D5B2;
+  --harvest: #E9A93B;
+  --harvest-soft: #F7E4BC;
+  --clay: #E1653F;
+  --cream: #FBF7EE;
+  --cream-dim: #F3EDDD;
+  --paper: #FFFFFF;
+  --ink: #22291F;
+  --ink-soft: #5B6459;
+  --line: rgba(27, 67, 50, 0.14);
+
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-body: 'Work Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 26px;
+  --shadow-card: 0 12px 30px -14px rgba(15, 42, 29, 0.28);
+  --shadow-pop: 0 20px 45px -18px rgba(15, 42, 29, 0.4);
+  --container: 1160px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--forest-deep);
+  margin: 0 0 0.5em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 1em; color: var(--ink-soft); }
+
+a { color: inherit; text-decoration: none; }
+
+button { font-family: var(--font-body); cursor: pointer; }
+
+.fr-container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.fr-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rescue-dark);
+  background: var(--sprout);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.fr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+.fr-btn:focus-visible { outline: 3px solid var(--harvest); outline-offset: 3px; }
+
+.fr-btn--primary {
+  background: var(--rescue);
+  color: var(--paper);
+  box-shadow: 0 10px 24px -10px rgba(64, 145, 108, 0.65);
+}
+.fr-btn--primary:hover { background: var(--rescue-dark); transform: translateY(-2px); }
+
+.fr-btn--ghost {
+  background: transparent;
+  color: var(--forest-deep);
+  border-color: var(--forest-deep);
+}
+.fr-btn--ghost:hover { background: var(--forest-deep); color: var(--paper); transform: translateY(-2px); }
+
+.fr-btn--light {
+  background: var(--paper);
+  color: var(--forest-deep);
+}
+.fr-btn--light:hover { background: var(--harvest-soft); transform: translateY(-2px); }
+
+.fr-section { padding: 96px 0; }
+@media (max-width: 720px) { .fr-section { padding: 64px 0; } }
+
+.fr-card {
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--line);
+}
+
+.fr-visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
